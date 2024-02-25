@@ -36,7 +36,7 @@ chain https://raw.githubusercontent.com/${github_user}/netboot.xyz-custom/master
 
 :windows10
 #kernel http://${boot_domain}/memdisk iso
-http://${boot_domain}/wimboot
+kernel http://${boot_domain}/wimboot
 echo Fetched memdisk...
 echo ${boot_domain}
 #kernel http://${boot_domain}/wimboot
