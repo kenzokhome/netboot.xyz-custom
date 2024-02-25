@@ -5,16 +5,13 @@
 
 :custom
 clear custom_choice
-menu This is a Test Menu
-item --gap This is the first sub menu
-item option_one ${space} Loading a kernel and initrd
-item option_two ${space} Loading an ISO
+menu Custom ISO installers
+item --gap Windows
 item windows11 ${space} Windows 11
 
 item --gap Linux Systems
-item option_three ${space} Loads another custom sub menu
-item option_four ${space} This is option four
 item zorin_os_17_pro ${space} Zorin OS 17 Pro
+item ubuntu_server ${space} Ubuntu Server 
 choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
@@ -56,9 +53,14 @@ kernel ${kernel_url}vmlinuz ip=dhcp boot=casper netboot=url url=${squash_url} in
 initrd ${live_endpoint}Zorin-OS-17-Pro-64-bit.iso
 boot
 
-:shell
-shell
-goto custom
+:ubuntu_server
+set squash_url ${live_endpoint}/ubuntu-squash/releases/download/20240116-mantic-5d45070a/filesystem.squashfs
+set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/20240116-mantic-5d45070a/
+imgfree
+kernel ${kernel_url}vmlinuz ip=dhcp boot=casper netboot=url url=${squash_url} initrd=initrd.magic ${cmdline}
+#initrd ${kernel_url}initrd
+initrd ${live_endpoint}ubuntu-22.04.3-live-server-amd64.iso
+boot
 
 :custom_exit
 chain utils.ipxe
