@@ -56,11 +56,7 @@ initrd ${live_endpoint}Zorin-OS-17-Pro-64-bit.iso
 boot
 
 :ubuntu_server
-set squash_url ${live_endpoint}/ubuntu-squash/releases/download/20240116-mantic-5d45070a/filesystem.squashfs
-set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/20240116-mantic-5d45070a/
-imgfree
-kernel ${kernel_url}vmlinuz ip=dhcp boot=casper netboot=url url=${squash_url} initrd=initrd.magic ${cmdline}
-#initrd ${kernel_url}initrd
+kernel http://${boot_domain}/memdisk iso
 initrd ${live_endpoint}ubuntu-22.04.3-live-server-amd64.iso
 boot
 
