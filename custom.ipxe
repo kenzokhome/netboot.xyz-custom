@@ -61,13 +61,11 @@ boot
 :ubuntu_server
 imgfree
 set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/22.04.3-7e94379b/
-#set ubuntu_iso_url ${live_endpoint}/ubuntu-22.04.3-live-server-amd64.iso
-#set netboot_params ip=dhcp url=${ubuntu_iso_url}
-#echo Loading Ubuntu Subiquity Network Installer...
-#kernel ${kernel_url}vmlinuz root=/dev/ram0 ramdisk_size=8000000 ${netboot_params} initrd=initrd.magic ${cmdline}
-kernel ${kernel_url}vmlinuz ramdisk_size=2100000 rw quiet initrd=initrd.magic ${cmdline}
+set ubuntu_iso_url ${live_endpoint}/ubuntu-22.04.3-live-server-amd64.iso
+set netboot_params ip=dhcp url=${ubuntu_iso_url}
+echo Loading Ubuntu Subiquity Network Installer...
+kernel ${kernel_url}vmlinuz root=/dev/ram0 ramdisk_size=2100000 ${netboot_params} initrd=initrd.magic ${cmdline}
 initrd ${kernel_url}initrd
-initrd ${live_endpoint}/ubuntu-22.04.3-live-server-amd64.iso /ubuntu-22.04.3-live-server-amd64.iso
 boot
 
 :custom_exit
