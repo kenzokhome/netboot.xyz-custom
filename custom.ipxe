@@ -54,6 +54,7 @@ goto boot_zorin
 imgfree
 set netboot_params ip=dhcp url=${ubuntu_iso_url}
 set zorin_iso_url ${live_endpoint}/Zorin-OS-17-Pro-64-bit.iso
+set netboot_params ip=dhcp url=${zorin_iso_url}
 kernel ${kernel_url}vmlinuz root=/dev/ram0 ramdisk_size=1500000 ${netboot_params} initrd=initrd.magic ${cmdline}
 initrd ${kernel_url}initrd
 boot
