@@ -37,7 +37,7 @@ chain https://raw.githubusercontent.com/${github_user}/netboot.xyz-custom/master
 :windows10
 kernel http://${boot_domain}/memdisk iso
 #kernel http://${boot_domain}/wimboot
-initrd http://10.7.0.19:8080/Windows10.iso
+initrd ${boot-url}/Windows10.iso
 boot
 goto custom
 
