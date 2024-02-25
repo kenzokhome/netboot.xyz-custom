@@ -47,9 +47,11 @@ boot || goto custom_exit
 :zorin_os_17_pro
 set squash_url ${live_endpoint}/ubuntu-squash/releases/download/17-71c713e6/filesystem.squashfs
 set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/17-71c713e6/
+goto boot_zorin
+
+:boot_zorin
 imgfree
 kernel ${kernel_url}vmlinuz ip=dhcp boot=casper netboot=url url=${squash_url} initrd=initrd.magic ${cmdline}
-#initrd ${kernel_url}initrd
 initrd ${live_endpoint}Zorin-OS-17-Pro-64-bit.iso
 boot
 
@@ -63,5 +65,6 @@ initrd ${live_endpoint}ubuntu-22.04.3-live-server-amd64.iso
 boot
 
 :custom_exit
-chain utils.ipxe
-exit
+#chain utils.ipxe
+clear menu
+exit 0
