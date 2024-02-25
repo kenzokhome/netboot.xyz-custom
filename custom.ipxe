@@ -60,7 +60,6 @@ boot
 
 :ubuntu_server
 imgfree
-set squash_url ${live_endpoint}/ubuntu-squash/releases/download/22.04.3-e851f966/filesystem.squashfs
 set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/22.04.3-e851f966/
 set ubuntu_iso_url ${live_endpoint}/ubuntu-22.04.3-live-server-amd64.iso
 set netboot_params ip=dhcp url=${ubuntu_iso_url}
