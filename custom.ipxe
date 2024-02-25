@@ -49,13 +49,11 @@ boot || goto custom_exit
 
 :zorin_os_17_pro
 set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/17-71c713e6/
-goto boot_zorin
-
-:boot_zorin
 imgfree
-kernel ${kernel_url}vmlinuz ramdisk_size=8000000 rw quiet initrd=initrd.magic ${cmdline}
+set zorin_iso_url ${live_endpoint}/Zorin-OS-17-Pro-64-bit.iso
+set netboot_params ip=dhcp url=${zorin_iso_url}
+kernel ${kernel_url}vmlinuz root=/dev/ram0 ramdisk_size=6800000 ${netboot_params} initrd=initrd.magic ${cmdline}
 initrd ${kernel_url}initrd
-initrd ${live_endpoint}/Zorin-OS-17-Pro-64-bit.iso /Zorin-OS-17-Pro-64-bit.iso
 boot
 
 :ubuntu_server
