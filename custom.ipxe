@@ -12,6 +12,7 @@ item windows11 ${space} Windows 11
 item --gap Linux Systems
 item zorin_os_17_pro ${space} Zorin OS 17 Pro
 item ubuntu_server ${space} Ubuntu Server 
+item pfsense ${space} PFSense
 choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
