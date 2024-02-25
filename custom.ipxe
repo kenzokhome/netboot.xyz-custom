@@ -34,9 +34,9 @@ echo Chains into another menu...
 chain https://raw.githubusercontent.com/${github_user}/netboot.xyz-custom/master/custom1.ipxe || goto custom
 
 :Windows_10
-kernel ${base-url}/netboot.xyz.efi
+kernel ${boot-url}/memdisk iso
 initrd http://10.7.0.19:8080/Windows10.iso
-boot || goto windows11_exit
+boot
 
 :custom_exit
 chain utils.ipxe
