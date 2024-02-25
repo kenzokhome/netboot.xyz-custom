@@ -11,9 +11,10 @@ item option_one ${space} Loading a kernel and initrd
 item option_two ${space} Loading an ISO
 item windows11 ${space} Windows 11
 
-item --gap This is a second sub menu
+item --gap Linux Systems
 item option_three ${space} Loads another custom sub menu
 item option_four ${space} This is option four
+item pop_os ${space} Pop-OS
 choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
@@ -44,6 +45,15 @@ echo ${boot_domain}
 initrd ${live_endpoint}Windows11.iso
 echo ${live_endpoint}
 echo ...Booting Windows 10...
+boot || goto custom_exit
+
+:pop_os
+kernel http://${boot_domain}/memdisk iso
+echo Fetched memdisk...
+echo ${boot_domain}
+initrd ${live_endpoint}pop-os_22.04_amd64_intel_17.iso
+echo ${live_endpoint}
+echo ...Booting Pop OS...
 boot || goto custom_exit
 
 :shell
