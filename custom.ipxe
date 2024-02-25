@@ -9,7 +9,7 @@ menu This is a Test Menu
 item --gap This is the first sub menu
 item option_one ${space} Loading a kernel and initrd
 item option_two ${space} Loading an ISO
-item windows10 ${space} Windows 10
+item windows11 ${space} Windows 11
 
 item --gap This is a second sub menu
 item option_three ${space} Loads another custom sub menu
@@ -34,14 +34,14 @@ boot || goto custom_exit
 echo Chains into another menu...
 chain https://raw.githubusercontent.com/${github_user}/netboot.xyz-custom/master/custom1.ipxe || goto custom
 
-:windows10
+:windows11
 #kernel http://${boot_domain}/memdisk iso
 kernel http://${boot_domain}/wimboot
 echo Fetched memdisk...
 echo ${boot_domain}
 #kernel http://${boot_domain}/wimboot
-#initrd http://${boot-url}/Windows10.iso
-initrd ${live_endpoint}Windows10.iso
+#initrd http://${boot-url}/Windows11.iso
+initrd ${live_endpoint}Windows11.iso
 echo ${live_endpoint}
 echo ...Booting Windows 10...
 boot || goto custom_exit
