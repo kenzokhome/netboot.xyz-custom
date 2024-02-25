@@ -11,8 +11,10 @@ item windows11 ${space} Windows 11
 
 item --gap Linux Systems
 item zorin_os_17_pro ${space} Zorin OS 17 Pro
+item zorin_os_16_pro ${space} Zorin OS 16 Pro
 item ubuntu_server ${space} Ubuntu Server 
 item pfsense ${space} PFSense
+item opnsense ${space} OPNSense
 choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
@@ -51,7 +53,7 @@ goto boot_zorin
 
 :boot_zorin
 imgfree
-kernel ${kernel_url}vmlinuz ramdisk_size=16777216 rw quiet initrd=initrd.magic ${cmdline}
+kernel ${kernel_url}vmlinuz ramdisk_size=8000000 rw quiet initrd=initrd.magic ${cmdline}
 initrd ${kernel_url}initrd
 initrd ${live_endpoint}/Zorin-OS-17-Pro-64-bit.iso /Zorin-OS-17-Pro-64-bit.iso
 boot
@@ -63,7 +65,7 @@ set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/22.04.3-e851f966
 set ubuntu_iso_url ${live_endpoint}/ubuntu-22.04.3-live-server-amd64.iso
 set netboot_params ip=dhcp url=${ubuntu_iso_url}
 echo Loading Ubuntu Subiquity Network Installer...
-kernel ${kernel_url}vmlinuz root=/dev/ram0 ramdisk_size=3500000 ${netboot_params} initrd=initrd.magic ${cmdline}
+kernel ${kernel_url}vmlinuz root=/dev/ram0 ramdisk_size=8000000 ${netboot_params} initrd=initrd.magic ${cmdline}
 initrd ${kernel_url}initrd
 boot
 
