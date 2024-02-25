@@ -60,7 +60,7 @@ boot
 
 :ubuntu_server
 imgfree
-set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/22.04.3-e851f966/
+set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/22.04.3-7e94379b/
 #set ubuntu_iso_url ${live_endpoint}/ubuntu-22.04.3-live-server-amd64.iso
 #set netboot_params ip=dhcp url=${ubuntu_iso_url}
 #echo Loading Ubuntu Subiquity Network Installer...
