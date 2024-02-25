@@ -14,7 +14,7 @@ item windows11 ${space} Windows 11
 item --gap Linux Systems
 item option_three ${space} Loads another custom sub menu
 item option_four ${space} This is option four
-item pop_os ${space} Pop-OS
+item zorin_os_17_pro ${space} Zorin OS 17 Pro
 choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
@@ -47,14 +47,14 @@ echo ${live_endpoint}
 echo ...Booting Windows 10...
 boot || goto custom_exit
 
-:pop_os
-kernel http://${boot_domain}/memdisk iso
-echo Fetched memdisk...
-echo ${boot_domain}
-initrd ${live_endpoint}pop-os_22.04_amd64_intel_17.iso
-echo ${live_endpoint}
-echo ...Booting Pop OS...
-boot || goto custom_exit
+:zorin_os_17_pro
+set squash_url ${live_endpoint}/ubuntu-squash/releases/download/17-71c713e6/filesystem.squashfs
+set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/17-71c713e6/
+imgfree
+kernel ${kernel_url}vmlinuz ip=dhcp boot=casper netboot=url url=${squash_url} initrd=initrd.magic ${cmdline}
+#initrd ${kernel_url}initrd
+initrd ${live_endpoint}Zorin-OS-17-Pro-64-bit.iso
+boot
 
 :shell
 shell
