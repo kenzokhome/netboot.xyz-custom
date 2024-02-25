@@ -47,7 +47,7 @@ echo ${live_endpoint}
 echo ...Booting Windows 10...
 boot || goto custom_exit
 
-:zorin_os_17_pro
+:zorin_os_16_pro
 set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/17-71c713e6/
 imgfree
 set zorin_16_iso_url ${live_endpoint}/Zorin-OS-16.1-Pro-64-bit.iso
@@ -56,7 +56,7 @@ kernel ${kernel_url}vmlinuz root=/dev/ram0 ramdisk_size=5771512 ${netboot_params
 initrd ${kernel_url}initrd
 boot
 
-:zorin_os_16_pro
+:zorin_os_17_pro
 set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/20.04.6-8618b61c/
 imgfree
 set zorin_iso_url ${live_endpoint}/Zorin-OS-17-Pro-64-bit.iso
