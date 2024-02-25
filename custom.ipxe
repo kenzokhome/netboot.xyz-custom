@@ -46,17 +46,14 @@ echo ...Booting Windows 10...
 boot || goto custom_exit
 
 :zorin_os_17_pro
-set squash_url ${live_endpoint}/ubuntu-squash/releases/download/17-71c713e6/filesystem.squashfs
 set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/17-71c713e6/
 goto boot_zorin
 
 :boot_zorin
 imgfree
-set netboot_params ip=dhcp url=${ubuntu_iso_url}
-set zorin_iso_url ${live_endpoint}/Zorin-OS-17-Pro-64-bit.iso
-set netboot_params ip=dhcp url=${zorin_iso_url}
-kernel ${kernel_url}vmlinuz root=/dev/ram0 ramdisk_size=1500000 ${netboot_params} initrd=initrd.magic ${cmdline}
+kernel ${kernel_url}vmlinuz ramdisk_size=16777216 rw quiet initrd=initrd.magic ${cmdline}
 initrd ${kernel_url}initrd
+initrd ${live_endpoint}/Zorin-OS-17-Pro-64-bit.iso /Zorin-OS-17-Pro-64-bit.iso
 boot
 
 :ubuntu_server
