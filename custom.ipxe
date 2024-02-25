@@ -9,7 +9,8 @@ menu This is a Test Menu
 item --gap This is the first sub menu
 item option_one ${space} Loading a kernel and initrd
 item option_two ${space} Loading an ISO
-item Windows_10 ${space} Windows 10
+item --key w Windows 10 Installation
+item --key s Shell (iPXE)
 item --gap This is a second sub menu
 item option_three ${space} Loads another custom sub menu
 item option_four ${space} This is option four
@@ -33,10 +34,15 @@ boot || goto custom_exit
 echo Chains into another menu...
 chain https://raw.githubusercontent.com/${github_user}/netboot.xyz-custom/master/custom1.ipxe || goto custom
 
-:Windows_10
+:windows10
 kernel ${boot-url}/memdisk iso
 initrd http://10.7.0.19:8080/Windows10.iso
 boot
+goto custom
+
+:shell
+shell
+goto custom
 
 :custom_exit
 chain utils.ipxe
