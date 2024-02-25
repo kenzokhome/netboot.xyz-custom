@@ -39,6 +39,7 @@ kernel http://${boot_domain}/memdisk iso
 #kernel http://${boot_domain}/wimboot
 #initrd http://${boot-url}/Windows10.iso
 initrd ${live_endpoint}/Windows10.iso
+echo Booting Windows 10...
 boot || goto custom_exit
 
 :shell
