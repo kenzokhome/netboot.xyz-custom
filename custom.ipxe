@@ -39,7 +39,7 @@ echo Fetched memdisk...
 echo ${boot_domain}
 #kernel http://${boot_domain}/wimboot
 #initrd http://${boot-url}/Windows11.iso
-initrd ${live_endpoint}Windows11.iso
+initrd ${live_endpoint}/Windows11.iso
 echo ${live_endpoint}
 echo ...Booting Windows 10...
 boot || goto custom_exit
@@ -52,14 +52,14 @@ goto boot_zorin
 :boot_zorin
 imgfree
 kernel ${kernel_url}vmlinuz ip=dhcp boot=casper netboot=url url=${squash_url} initrd=initrd.magic ${cmdline}
-initrd ${live_endpoint}Zorin-OS-17-Pro-64-bit.iso
+initrd ${live_endpoint}/Zorin-OS-17-Pro-64-bit.iso
 boot
 
 :ubuntu_server
 imgfree
 set squash_url ${live_endpoint}/ubuntu-squash/releases/download/22.04.3-e851f966/filesystem.squashfs
 set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/22.04.3-e851f966/
-set ubuntu_iso_url ${live_endpoint}ubuntu-22.04.3-live-server-amd64.iso
+set ubuntu_iso_url ${live_endpoint}/ubuntu-22.04.3-live-server-amd64.iso
 set netboot_params ip=dhcp url=${ubuntu_iso_url}
 echo Loading Ubuntu Subiquity Network Installer...
 kernel ${kernel_url}vmlinuz root=/dev/ram0 ramdisk_size=1500000 ${netboot_params} initrd=initrd.magic ${cmdline}
