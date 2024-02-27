@@ -53,6 +53,21 @@ initrd ${live_endpoint}/pfSense-CE-memstick-2.7.1-RELEASE-amd64.img
 chain ${memdisk} harddisk raw
 exit
 
+:opnsense
+imgfree
+echo This loads an mfsbsd installer (http://mfsbsd.vx.sk/).
+echo Root password for all images: mfsroot
+echo You'll need to configure networking manually for the installer disk as
+echo it uses dhcp by default:
+echo ifconfig xn0 inet <public ip> netmask 255.255.255.0
+echo route delete default; route add default <public ip x.x.x.1>
+echo echo "nameserver x.x.x.x" > /etc/resolv.conf
+echo Once network is configured, you can launch the usual installer:
+echo bsdinstall
+initrd ${live_endpoint}/OPNsense-23.7-vga-amd64.img
+chain ${memdisk} harddisk raw
+exit
+
 :win11
 set os_root ${live_endpoint}/Windows11
 goto winBoot
