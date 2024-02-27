@@ -41,8 +41,8 @@ chain https://raw.githubusercontent.com/${github_user}/netboot.xyz-custom/master
 set os_root ${live_endpoint}/Windows11/Windows11.iso
 cpuid --ext 29 && set arch amd64
 kernel https://${boot_domain}/wimboot
-initrd ${os_root}/media/Boot/BCD	BCD
-initrd ${os_root}/media/Boot/boot.sdi	boot.sdi
+initrd ${os_root}/boot/bcd	BCD
+initrd ${os_root}/boot/boot.sdi	boot.sdi
 initrd -n boot.wim ${os_root}/sources/boot.wim	boot.wim
 boot
 
