@@ -56,11 +56,11 @@ boot
 :win10
 set os_root ${live_endpoint}/Windows10.iso
 kernel https://${boot_domain}/wimboot gui
-initrd ${os_root}/winpeshl.ini     winpeshl.ini
-initrd ${os_root}/install.bat      install.bat
-initrd ${os_root}/installs/windows/win10/boot/bcd         BCD
-initrd ${os_root}/installs/windows/win10/boot/boot.sdi    boot.sdi
-initrd ${os_root}/boot.wim boot.wim
+#initrd ${os_root}/winpeshl.ini     winpeshl.ini
+#initrd ${os_root}/install.bat      install.bat
+initrd ${os_root}/boot/bcd         BCD
+initrd ${os_root}/boot/boot.sdi    boot.sdi
+initrd ${os_root}/sources/boot.wim boot.wim
 #initrd ${os_root}/installs/windows/win10/sources/boot.wim boot.wim
 boot
 
