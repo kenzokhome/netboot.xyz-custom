@@ -37,13 +37,13 @@ boot || goto custom_exit
 echo Chains into another menu...
 chain https://raw.githubusercontent.com/${github_user}/netboot.xyz-custom/master/custom1.ipxe || goto custom
 
-:win11_reeeeeee
+:win11
 set os_root ${live_endpoint}/Windows11/Windows11.iso
 cpuid --ext 29 && set arch amd64
 kernel https://${boot_domain}/wimboot
 initrd ${os_root}/media/Boot/BCD	BCD
 initrd ${os_root}/media/Boot/boot.sdi	boot.sdi
-initrd -n boot.wim ${os_root}/media/sources/boot.wim	boot.wim
+initrd -n boot.wim ${os_root}/sources/boot.wim	boot.wim
 boot
 
 :win10
@@ -57,7 +57,7 @@ initrd ${os_root}/boot.wim boot.wim
 #initrd ${os_root}/installs/windows/win10/sources/boot.wim boot.wim
 boot
 
-:win11
+:win11_custom
 #kernel http://${boot_domain}/memdisk iso
 kernel http://${boot_domain}/wimboot
 echo Fetched memdisk...
