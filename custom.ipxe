@@ -131,6 +131,5 @@ initrd ${kernel_url}initrd
 boot
 
 :custom_exit
-chain utils.ipxe
-#clear menu
+clear menu
 exit 0
