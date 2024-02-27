@@ -39,7 +39,7 @@ chain https://raw.githubusercontent.com/${github_user}/netboot.xyz-custom/master
 :win11
 set os_root ${live_endpoint}/Windows11.iso
 cpuid --ext 29 && set arch amd64
-kernel http://${boot_domain}/wimboot
+kernel https://${boot_domain}/wimboot
 initrd ${os_root}/media/Boot/BCD	BCD
 initrd ${os_root}/media/Boot/boot.sdi	boot.sdi
 initrd -n boot.wim ${os_root}/media/sources/boot.wim	boot.wim
@@ -47,7 +47,7 @@ boot
 
 :win10
 set os_root ${live_endpoint}/Windows10.iso
-kernel ${boot_domain}/wimboot gui
+kernel https://${boot_domain}/wimboot gui
 initrd ${os_root}/winpeshl.ini     winpeshl.ini
 initrd ${os_root}/install.bat      install.bat
 initrd ${os_root}/installs/windows/win10/boot/bcd         BCD
