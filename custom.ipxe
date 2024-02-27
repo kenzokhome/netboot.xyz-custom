@@ -7,8 +7,9 @@
 clear custom_choice
 menu Custom ISO installers
 item --gap Windows
-item win10 ${space} Windows 10
-item win11 ${space} Windows 11
+item win10_64 ${space} Windows 10 x64
+item win10_86 ${space} Windows 10 x86
+item win11 ${space} Windows 11 x64
 
 item --gap Linux Systems
 item zorin_os_17_pro ${space} Zorin OS 17 Pro
@@ -41,8 +42,12 @@ chain https://raw.githubusercontent.com/${github_user}/netboot.xyz-custom/master
 set os_root ${live_endpoint}/Windows11
 goto winBoot
 
-:win10
-set os_root ${live_endpoint}/Windows10
+:win10_86
+set os_root ${live_endpoint}/Windows10/x86
+goto winBoot
+
+:win10_64
+set os_root ${live_endpoint}/Windows10/x64
 goto winBoot
 
 :winBoot
