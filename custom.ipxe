@@ -49,7 +49,7 @@ echo route delete default; route add default <public ip x.x.x.1>
 echo echo "nameserver x.x.x.x" > /etc/resolv.conf
 echo Once network is configured, you can launch the usual installer:
 echo bsdinstall
-initrd ${live_endpoint}/pfSense-CE-memstick-2.7.1-RELEASE-amd64.img
+initrd ${live_endpoint}/pfSense-CE-memstick-2.7.2-RELEASE-amd64.img
 chain ${memdisk} harddisk raw
 exit
 
@@ -64,7 +64,7 @@ echo route delete default; route add default <public ip x.x.x.1>
 echo echo "nameserver x.x.x.x" > /etc/resolv.conf
 echo Once network is configured, you can launch the usual installer:
 echo bsdinstall
-initrd ${live_endpoint}/OPNsense-23.7-vga-amd64.img
+initrd ${live_endpoint}/OPNsense-24.1-vga-amd64.img
 chain ${memdisk} harddisk raw
 exit
 
@@ -131,5 +131,6 @@ initrd ${kernel_url}initrd
 boot
 
 :custom_exit
+#chain utils.ipxe
 clear menu
 exit 0
